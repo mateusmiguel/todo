@@ -18,24 +18,30 @@
     </header>
     <form class="add">
       <input type="text" name="add" placeholder="Add item...">
-      <button class="add-btn" onclick="console.log('click')">+</button>
+      <button class="add-btn" onclick="console.log('click')">
+        <i class="fas fa-plus"></i>
+      </button>
     </form>
     <section class="items">
       <div class="item">
         <input type="checkbox" name="item-1" id="item-1">
         <label for="item-1">Checkout email</label>
+        <i class="far fa-trash-alt delete-btn"></i>
       </div>
       <div class="item">
         <input type="checkbox" name="item-2" id="item-2">
         <label for="item-2">Buy a pizza</label>
+        <i class="far fa-trash-alt delete-btn"></i>
       </div>
       <div class="item">
         <input type="checkbox" name="item-3" id="item-3">
         <label for="item-3">Go to the market</label>
+        <i class="far fa-trash-alt delete-btn"></i>
       </div>
       <div class="item">
         <input type="checkbox" name="item-4" id="item-4">
-        <label for="item-4">Take out the garbage</label>
+        <label for="item-4">Take out the trash</label>
+        <i class="far fa-trash-alt delete-btn"></i>
       </div>
     </section>
     <footer class="footer">

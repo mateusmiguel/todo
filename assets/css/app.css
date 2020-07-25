@@ -1,7 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+:root {
+  /* Definition of general colors */
+  --white:            #fff;
+  --soft-gray:        #ebebeb;
+  --gray:             #455963;
 
-* { 
+  /* Definition of project colors  and backgrounds */
+  --primary-color:    #3a7bd5;
+  --secondary-color:  #3a6073;
+  --bg-gradient:      linear-gradient(to right, var(--secondary-color), var(--primary-color));
+  
+  /* Definition of fonts */
+  --text-color:       #455963;
+  --font-family:      "Nunito", sans-serif;
+  --font-size:        1rem;
+  --font-weight:      400;
+  --line-height:      1.4;
+
+  /* Definition of borders and spacing */
+  --border-color:     var(--soft-gray);
+
+  /* Other definitions */
+  --transition-base:  all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --box-shadow-base:  0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,25 +45,23 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100%;
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.4;
-  background: #3a7bd5;
-  background: linear-gradient(to right, #3a6073, #3a7bd5);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  background: var(--bg-gradient);
   background-attachment: fixed;
 }
-  
+
 a {
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: var(--transition-base);
 }
-
 
 .title {
   padding: 1rem;
-  font-weight: 700; 
-  color: white;
+  font-weight: 700;
+  color: var(--white);
   margin-top: 30px;
 }
 
@@ -45,14 +69,14 @@ a {
   width: 370px;
   overflow: hidden;
   margin-bottom: 30px;
-  color: #455963;
-  background-color: #fff;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: var(--text-color);
+  background-color: var(--white);
+  transition: var(--transition-base);
   border-radius: 8px;
 }
 
 .todo:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--box-shadow-base);
 }
 
 .header {
@@ -61,49 +85,71 @@ a {
   display: flex;
   justify-content: space-between;
   font-weight: 700;
-  background: #ebebeb;
+  background: var(--border-color);
 }
 
 .add {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 1px #ebebeb solid;
+  border-bottom: 1px var(--border-color) solid;
 }
 
-.add > * { 
+.add > * {
   border: 0;
   padding: 0;
   font-family: "Nunito", sans-serif;
-  font-size: 1.125rem;
   background: transparent;
   padding: 1rem;
 }
 
-.add input[type=text] {
+.add input[type="text"] {
   width: 100%;
-  color: #6C717B;
+  color: var(--text-color);
+  font-size: 1.125rem;
 }
 
 .add-btn {
   font-weight: 700;
+  cursor: pointer;
+  color: var(--secondary-color);
 }
 
-
+.add-btn:hover {
+  color: var(--primary-color);
+}
 
 .items {
   padding: 1rem;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.item input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
 }
 
 .item + .item {
   margin-top: 1rem;
 }
 
+.delete-btn {
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.delete-btn:hover {
+  color: var(--primary-color);
+}
+
 .footer {
-  border-top: 1px #ebebeb solid;
+  border-top: 1px var(--border-color) solid;
   padding: 1rem;
   font-size: 0.8125rem;
 }
-
-
-
