@@ -12,20 +12,38 @@
 <body>
   <h1 class="title">To do List with Vanilla JS</h1>
   <main class="todo">
-    <header class="todo-header">
-      <div class="todo-header-title">Fri Jul 24 2020</div>
-      <div class="todo-header-counter">4 Tasks</div>
+    <header class="header">
+      <div class="header-title">Fri Jul 24 2020</div>
+      <div class="header-counter">4 Tasks</div>  
     </header>
-    <div>
-      <div>Go to market</div>
-      <div>Buy a new bass</div>
-    </div>
-    <footer>
-      <span>4 Items</span>
+    <form class="add">
+      <input type="text" name="add" placeholder="Add item...">
+      <button class="add-btn" onclick="console.log('click')">+</button>
+    </form>
+    <section class="items">
+      <div class="item">
+        <input type="checkbox" name="item-1" id="item-1">
+        <label for="item-1">Checkout email</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" name="item-2" id="item-2">
+        <label for="item-2">Buy a pizza</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" name="item-3" id="item-3">
+        <label for="item-3">Go to the market</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" name="item-4" id="item-4">
+        <label for="item-4">Take out the garbage</label>
+      </div>
+    </section>
+    <footer class="footer">
+      <span>0/4 tasks done</span>
     </footer>
   </main>
 </body>
 <!-- Scripts -->
-<script src="js/app.js"></script>
+<script src="assets/js/app.js"></script>
 
 </html>
