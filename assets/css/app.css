@@ -123,6 +123,19 @@ a {
   padding: 1rem;
 }
 
+.items:empty {
+  display: none;
+}
+
+.message {
+  padding: 1rem;
+  display: none;
+}
+
+.items:empty + .message {
+  display: block;
+}
+
 .item {
   width: 100%;
   display: flex;
