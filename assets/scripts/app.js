@@ -6,28 +6,9 @@ const dateElement = document.querySelector(".header-title");
 const counterElement = document.querySelector(".header-counter");
 const footerElement = document.querySelector(".footer");
 
-
 submitForm.addEventListener("submit", addTodo);
 
-
-let todos = [
-  {
-    task: 'Study JS',
-    checked: true,
-  },
-  {
-    task: 'Play guitar',
-    checked: false,
-  },
-  {
-    task: 'Take off the trash',
-    checked: false,
-  },
-  {
-    task: 'Go to market',
-    checked: false
-  }
-];
+let todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function addTodo(e) {
   e.preventDefault();
@@ -38,20 +19,30 @@ function addTodo(e) {
 
   submitInput.value = '';
   renderList();
+  saveToStorage();
 }
-
 
 function deleteTodo(pos) {
-  todos.splice(pos, 1);
-  
+  todos.splice(pos, 1);  
   renderList();
+  saveToStorage();
 }
 
+function deleteTodoByKey(event, pos) {
+  if (event.keyCode === 13) {
+    deleteTodo(pos);
+  }
+}
 
 function tickTodo(pos) { 
   todos[pos].checked = !todos[pos].checked;
 
   renderFooter();
+  saveToStorage();
+}
+
+function saveToStorage() {
+  localStorage.setItem('list_todos', JSON.stringify(todos));
 }
 
 function renderHeader() {
@@ -89,7 +80,7 @@ function renderList() {
       <div class="item" id="item-${pos}">
         <input type="checkbox" ${todo.checked && 'checked'} name="item-${pos}" id="item-${pos}" onclick="tickTodo(${pos})">
         <label for="item-${pos}">${todo.task}</label>
-        <i class="far fa-trash-alt delete-btn" onclick="deleteTodo(${pos})"></i>
+        <i tabindex="0" class="far fa-trash-alt delete-btn" onclick="deleteTodo(${pos})" onkeypress="deleteTodoByKey(event, ${pos})"></i>
       </div>`;
     items.innerHTML += todoElement;
   })

@@ -60,21 +60,19 @@ a {
   transition: var(--transition-base);
 }
 
-.title {
-  padding: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-top: 30px;
-}
-
 .todo {
-  width: 370px;
-  overflow: hidden;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
   color: var(--text-color);
   background-color: var(--white);
   transition: var(--transition-base);
-  border-radius: 8px;
+
+}
+
+.items {
+  overflow-y: auto;
 }
 
 .todo:hover {
@@ -167,4 +165,14 @@ a {
   border-top: 1px var(--border-color) solid;
   padding: 1rem;
   font-size: 0.8125rem;
+  margin-top: auto;
+}
+
+@media (min-width: 340px) {    
+  .todo {
+    height: 75vh;
+    width: 320px;
+    border-radius: 8px; 
+    overflow: hidden;
+  }
 }
