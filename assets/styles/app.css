@@ -1,13 +1,15 @@
+/* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css");
 
+/* Variables */
 :root {
   /* Definition of general colors */
   --white:            #fff;
   --soft-gray:        #ebebeb;
   --gray:             #455963;
 
-  /* Definition of project colors  and backgrounds */
+  /* Definition of project colors and backgrounds */
   --primary-color:    #3a7bd5;
   --secondary-color:  #3a6073;
   --bg-gradient:      linear-gradient(to right, var(--secondary-color), var(--primary-color));

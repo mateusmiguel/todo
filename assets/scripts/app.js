@@ -4,6 +4,8 @@ const submitInput = document.querySelector(".add input");
 const submitButton = document.querySelector(".add-btn");
 const dateElement = document.querySelector(".header-title");
 const counterElement = document.querySelector(".header-counter");
+const footerElement = document.querySelector(".footer");
+
 
 submitForm.addEventListener("submit", addTodo);
 
@@ -29,30 +31,27 @@ let todos = [
 
 function addTodo(e) {
   e.preventDefault();
-  console.log("eeeiii")
   todos.push({
     task: submitInput.value,
     checked: false
   });
 
   submitInput.value = '';
-  renderTodos();
+  renderList();
 }
 
 
-function deleteTodo(id) {
-  alert(id);
-  // if (e.target.classList.contains('delete-btn')) {
-  //   console.log('clicou')
-  //   console.log(e)
-
-  //   // e.target.parentElement.remove();
-  // }
+function deleteTodo(pos) {
+  todos.splice(pos, 1);
+  
+  renderList();
 }
 
 
-function tickTodo(e) { 
-  console.log('tick Task');
+function tickTodo(pos) { 
+  todos[pos].checked = !todos[pos].checked;
+
+  renderFooter();
 }
 
 function renderHeader() {
@@ -67,30 +66,42 @@ function renderCounter() {
   counterElement.innerHTML = '';
   counterElement.appendChild(
     document.createTextNode(
-      `${todos.length} Tasks`
+      `${todos.length} tasks`
     )
   );
 }
 
-function renderTodos() {
-  items.innerHTML = '';
-  todos.map((todo, id) => {
-    let todoElement = `
-      <div class="item" id="item-${id}">
-        <input type="checkbox" ${todo.checked && 'checked'} name="item-${id}" id="item-${id}">
-        <label for="item-${id}">${todo.task}</label>
-        <i class="far fa-trash-alt delete-btn" onclick="deleteTodo(${id})"></i>
-      </div>`;
-    console.log(todoElement)
-    items.innerHTML += todoElement;
-  })
-  renderCounter();
-
+function renderFooter() {
+  let checkedItems = todos.filter(item => item.checked === true).length;
+  footerElement.innerHTML = '';
+  footerElement.appendChild(
+    document.createTextNode(
+      todos.length > 0 ? `${checkedItems}/${todos.length} tasks completed` : "No tasks to show."
+    )
+  );
 }
 
-//TODO: Colocar tudo dento de uma função.
+function renderList() {
+  items.innerHTML = '';
+  todos.map((todo) => {
+    let pos = todos.indexOf(todo);
+    let todoElement = `
+      <div class="item" id="item-${pos}">
+        <input type="checkbox" ${todo.checked && 'checked'} name="item-${pos}" id="item-${pos}" onclick="tickTodo(${pos})">
+        <label for="item-${pos}">${todo.task}</label>
+        <i class="far fa-trash-alt delete-btn" onclick="deleteTodo(${pos})"></i>
+      </div>`;
+    items.innerHTML += todoElement;
+  })
 
-renderHeader(); 
-renderTodos();
+  renderCounter();
+  renderFooter();
+}
 
-// items.addEventListener('click', deleteTodos);
+function renderTodo() {
+  renderHeader(); 
+  renderList();
+  renderFooter();
+}
+
+renderTodo();
