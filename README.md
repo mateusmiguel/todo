@@ -1,9 +1,3 @@
 # TODO JS
 
-- Sobre a aplicação:
- - Deverá ser desenvolvida utilizando apenas HTML, JS e CSS 'puro'.
- - Deverá gravar os valores em LocalStorage 
- - Deverá ser possível cadastrar inúmeros itens na lista
- - Deverá ser possível deletar os itens da lista
- - Deverá ser possível deletar todos os itens da lista de uma vez
- - Deverá listar a quantidade de  items no rodapé da aplicação.
+A simple, mobile-responsive To-Do list app built with HTML, CSS and JavaScript. This To-Do list was created to solidify my knowledge of JavaScript fundamentals and to practice implementing local storage.
