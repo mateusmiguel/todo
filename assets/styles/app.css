@@ -176,3 +176,10 @@ a {
     overflow: hidden;
   }
 }
+
+@media (min-width:  1200px) {    
+  .todo {
+      width: 75vw;
+  }
+}
+
