@@ -177,9 +177,9 @@ a {
   }
 }
 
-@media (min-width:  1200px) {    
+@media (min-width: 1200px) {    
   .todo {
-      width: 75vw;
+    width: 75vw;
   }
 }
 
