@@ -1,0 +1,21 @@
+{
+  "name": "todoup",
+  "version": "1.0.0",
+  "description": "TodoUp is a simple todolist written with vanilla JS",
+  "main": "index.js",
+  "repository": "git@github.com:mateusmiguel/todo.git",
+  "author": "Mateus Miguel <webmateusmiguel@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve"
+  }
+}

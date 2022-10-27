@@ -5,28 +5,33 @@
 /* Variables */
 :root {
   /* Definition of general colors */
-  --white:            #fff;
-  --soft-gray:        #ebebeb;
-  --gray:             #455963;
+  --white: #fff;
+  --soft-gray: #ebebeb;
+  --gray: #455963;
 
   /* Definition of project colors and backgrounds */
-  --primary-color:    #3a7bd5;
-  --secondary-color:  #3a6073;
-  --bg-gradient:      linear-gradient(to right, var(--secondary-color), var(--primary-color));
-  
+  --primary-color: #3a7bd5;
+  --secondary-color: #3a6073;
+  --bg-gradient: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+
   /* Definition of fonts */
-  --text-color:       #455963;
-  --font-family:      "Nunito", sans-serif;
-  --font-size:        1rem;
-  --font-weight:      400;
-  --line-height:      1.4;
+  --text-color: #455963;
+  --font-family: "Nunito", sans-serif;
+  --font-size: 1rem;
+  --font-weight: 400;
+  --line-height: 1.4;
 
   /* Definition of borders and spacing */
-  --border-color:     var(--soft-gray);
+  --border-color: var(--soft-gray);
 
   /* Other definitions */
-  --transition-base:  all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --box-shadow-base:  0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
+  --transition-base: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --box-shadow-base: 0 14px 28px rgba(0, 0, 0, 0.05),
+    0 10px 10px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -43,16 +48,14 @@ html {
 
 body {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* flex-direction: row; */
+  /* justify-content: center;
+  align-items: center; */
   min-height: 100%;
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
-  background: var(--bg-gradient);
-  background-attachment: fixed;
 }
 
 a {
@@ -63,12 +66,11 @@ a {
 .todo {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   color: var(--text-color);
   background-color: var(--white);
   transition: var(--transition-base);
-
 }
 
 .items {
@@ -76,9 +78,22 @@ a {
 }
 
 .todo:hover {
-  box-shadow: var(--box-shadow-base);
+  /* box-shadow: var(--box-shadow-base); */
 }
 
+/* header */
+.todo-header {
+  border-right: 1px #ccc solid;
+  width: 280px;
+  /* display: none; */
+}
+
+/* wrapper */
+.todo-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+}
 .header {
   padding: 1.5rem 1rem;
   font-size: 1.25rem;
@@ -162,24 +177,26 @@ a {
 }
 
 .footer {
-  border-top: 1px var(--border-color) solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 1rem;
   font-size: 0.8125rem;
   margin-top: auto;
+  border-top: 1px var(--border-color) solid;
 }
-
-@media (min-width: 340px) {    
+/* 
+@media (min-width: 340px) {
   .todo {
     height: 75vh;
     width: 320px;
-    border-radius: 8px; 
+    border-radius: 8px;
     overflow: hidden;
   }
 }
 
-@media (min-width: 1200px) {    
+@media (min-width: 1200px) {
   .todo {
     width: 75vw;
   }
-}
-
+} */
