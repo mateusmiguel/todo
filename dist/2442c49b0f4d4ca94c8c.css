@@ -58,7 +58,7 @@ body {
   line-height: var(--line-height);
 }
 
-:global a {
+a {
   text-decoration: none;
   transition: var(--transition-base);
 }
@@ -75,6 +75,10 @@ body {
 
 .items {
   overflow-y: auto;
+}
+
+.todo:hover {
+  /* box-shadow: var(--box-shadow-base); */
 }
 
 /* header */

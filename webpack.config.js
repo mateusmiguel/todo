@@ -1,25 +1,76 @@
-const path = require("path");
+var path = require("path");
+var fs = require("fs");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+
+var htmlFiles = [];
+var directories = ["src"];
+var isDev = env.NODE_ENV !== "prod";
+
+while (directories.length > 0) {
+  var directory = directories.pop();
+  var dirContents = fs
+    .readdirSync(directory)
+    .map((file) => path.join(directory, file));
+  htmlFiles.push(...dirContents.filter((file) => file.endsWith(".html")));
+  directories.push(
+    ...dirContents.filter((file) => fs.statSync(file).isDirectory())
+  );
+}
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/scripts/app.js",
   output: {
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-  },
-  devServer: {
-    static: path.join(__dirname, "dist"),
+    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.html$/i,
+        use: "html-loader",
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        test: /\.(png|jpg)$/i,
+        // type: "asset/resource",
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // Inline anything under 10kb
+          },
+        },
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              pngquant: {
+                quality: [0.9, 0.95],
+              },
+            },
+          },
+        ],
+        generator: {
+          filename: "images/[name]-[hash][ext]",
+        },
       },
     ],
   },
+  plugins: [
+    ...htmlFiles.map(
+      (htmlFile) =>
+        new HtmlWebpackPlugin({
+          template: htmlFile,
+          filename: htmlFile.replace(path.normalize("src/"), ""),
+          inject: true,
+          minify: !isDev && {
+            html5: true,
+            collapseWhitespace: true,
+            caseSensitive: true,
+            removeComments: true,
+            removeEmptyElements: false,
+          },
+        })
+    ),
+  ],
 };

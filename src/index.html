@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Task Manager</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body>
+    <header class="todo-header">
+      <div class="todo-logo">
+        <img src="assets/images/logo.png" alt="Todoup" />
+      </div>
+      <nav class="todo-navbar">
+        <ul>
+          <li><a href="#">projects</a></li>
+          <li><a href="/about.html">about</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="todo-wrapper">
+      <main class="todo">
+        <section class="header">
+          <div class="header-title"></div>
+          <div class="header-counter"></div>
+        </section>
+        <form class="add">
+          <input type="text" name="add" placeholder="Add item..." required />
+          <button type="submit" class="add-btn">
+            <i class="fas fa-plus"></i>
+          </button>
+        </form>
+        <section class="items"></section>
+        <span class="message">Nothing to do today. Enjoy! 😎</span>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-info"></div>
+        <div>Copyright 1992-2022</div>
+      </footer>
+    </div>
+  </body>
+</html>
