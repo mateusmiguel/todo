@@ -58,7 +58,7 @@ body {
   line-height: var(--line-height);
 }
 
-:global a {
+a {
   text-decoration: none;
   transition: var(--transition-base);
 }
@@ -71,6 +71,10 @@ body {
   color: var(--text-color);
   background-color: var(--white);
   transition: var(--transition-base);
+}
+.todo-logo img {
+  width: 100%;
+  padding: 24px;
 }
 
 .items {
